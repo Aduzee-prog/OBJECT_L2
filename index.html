@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="name" id="firstName">
+    <input type="name" id="lastName">
+    <input type="email" id="email">
+    <input type="password" id="password">
+    <button id="btnSubmit">Submit</button>
+    
+</body>
+<script>
+    let allStudent = []
+    const btn = document.getElementById('btnSubmit')
+    const fName = document.getElementById('firstName')
+    const lName = document.getElementById('lastName')
+    const mail = document.getElementById('email')
+    const pass = document.getElementById('password')
+    btn.addEventListener('click', ()=>{
+        if(fName === '' || lName === '' || mail === ''|| pass ===''){
+            alert('Fill in the empty space')
+        }else{
+            console.log(fName.value, lName.value, mail.value, pass.value );
+            const obj = {
+                first: fName.value,
+                last: lName.value,
+                maily: mail.value,
+                pin: pass.value
+            }
+            console.log(obj);
+            allStudent.push(obj)
+            localStorage.getItem('user',JSON.stringify(allStudent))
+            setTimeout(()=>{
+                window.location.href = 'signin.html'
+            }, 2000)
+            console.log(allStudent);
+            fName.value = ''
+            lName.value = ''
+            mail.value = ''
+            pass.value = ''
+            
+            
+            
+        }
+    })
+
+
+   
+
+//    let studentObject = {
+//        studentName:"pelumi", 
+//        age:23, 
+//        gender:"female", 
+//        rich:true,
+//        signUp(time) {
+//         time = new Date().toLocaleTimeString()
+//         console.log(`Signed up successfully at ${time}`);
+        
+//        }
+//     }
+//     console.log(studentObject);
+//     // Dot notation
+//     console.log(studentObject.gender);
+//     // Bracket notation 
+//     console.log(studentObject['age']);
+//     studentObject.signUp()
+    
+    
+    
+</script>
+</html>
